@@ -4,7 +4,7 @@ import { Typography } from "@material-tailwind/react";
 export const Footer = () => {
   const LINKS = [
     {
-      title: "Product",
+      title: "Pages",
       items: ["Overview", "Features", "Solutions", "Tutorials"],
     },
     {
@@ -24,7 +24,7 @@ export const Footer = () => {
       <div className="mx-auto w-full max-w-7xl px-8">
         <div className="grid grid-cols-1 justify-between gap-4 md:grid-cols-2">
           <a href="/" className="font-bold text-3xl text-red-500 cursor-pointer">
-            Movielist
+            Movie list
           </a>
           <div className="grid grid-cols-3 justify-between gap-4">
             {LINKS.map(({ title, items }) => (

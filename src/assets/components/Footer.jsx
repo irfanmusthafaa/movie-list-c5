@@ -8,7 +8,7 @@ export const Footer = () => {
       items: ["Overview", "Features", "Solutions", "Tutorials"],
     },
     {
-      title: "Company",
+      title: "Test",
       items: ["About us", "Careers", "Press", "News"],
     },
     {

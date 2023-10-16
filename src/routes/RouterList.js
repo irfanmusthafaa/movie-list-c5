@@ -5,13 +5,17 @@ import { Detail } from "../pages/Detail";
 import { Search } from "../pages/Search";
 import { AllMovies } from "../pages/AllMovies";
 import { AllNowPlaying } from "../pages/AllNowPlaying";
+import { Register } from "../pages/Auth/Register";
+import { Login } from "../pages/Auth/Login";
 
 export const RouterList = () => {
   return (
     <>
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<Home />}></Route>
+          <Route path="/" element={<Register />}></Route>
+          <Route path="/login" element={<Login />}></Route>
+          <Route path="/home" element={<Home />}></Route>
           <Route path="/all-popular" element={<AllMovies />}></Route>
           <Route path="/all-now-playing" element={<AllNowPlaying />}></Route>
           <Route path="/detail" element={<Detail />}></Route>

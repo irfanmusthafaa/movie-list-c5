@@ -3,4 +3,7 @@ export const API_ENDPOINT = {
   POPULAR: "/3/movie/popular",
   SEARCH: "/3/search/movie",
   DETAIL: "/3/movie",
+  REGISTER_USER: "/api/v1/auth/register",
+  LOGIN_USER: "/api/v1/auth/login",
+  GET_USER: "/api/v1/auth/me",
 };

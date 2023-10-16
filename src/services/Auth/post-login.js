@@ -5,16 +5,10 @@ import http from "../../utils/http";
 import { useMutation } from "@tanstack/react-query";
 
 const LoginUser = async (input) => {
-  return await http
-    .post(API_ENDPOINT.LOGIN_USER, input)
-    .then((result) => {
-      CookiesStorage.set(CookiesKey.AuthToken, result.data.data.token);
-      // console.log(result);
-    })
-    .catch((err) => {
-      // toast(err.response.data.message, "err");
-      alert(err.response.data.message, "err");
-    });
+  return await http.post(API_ENDPOINT.LOGIN_USER, input).then((result) => {
+    CookiesStorage.set(CookiesKey.AuthToken, result.data.data.token);
+    return result;
+  });
 };
 
 const useLoginUser = () => {

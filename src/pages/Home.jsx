@@ -5,6 +5,7 @@ import { useDataMoviesNowPlayingQuery } from "../services/get-movies-nowplaying"
 import { PopularMovie } from "../assets/components/PopularMovie";
 import { Header } from "../assets/components/Header";
 import { NowPlayingMovie } from "../assets/components/NowPlayingMovie";
+import { Footer } from "../assets/components/Footer";
 
 export const Home = () => {
   const [nowPlayingMovies, setNowPlayingMovies] = useState([]);
@@ -25,6 +26,7 @@ export const Home = () => {
       <Header nowPlayingMovies={nowPlayingMovies} />
       <PopularMovie />
       <NowPlayingMovie />
+      <Footer />
     </div>
   );
 };

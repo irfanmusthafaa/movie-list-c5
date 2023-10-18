@@ -6,7 +6,7 @@ import { useDataMoviesSearchQuery } from "../services/Movies/get-movies-search";
 
 export const Search = () => {
   const location = useLocation();
-  const { query } = location.state;
+  const { query } = location.state ? location.state : "";
   const [movies, setMovies] = useState([]);
   const [search, setSearch] = useState("");
 

@@ -10,6 +10,8 @@ const LoginUser = async (input) => {
     .post(API_ENDPOINT.LOGIN_USER, input)
     .then((result) => {
       CookiesStorage.set(CookiesKey.AuthToken, result.data.data.token);
+
+      return result
     })
 
 };

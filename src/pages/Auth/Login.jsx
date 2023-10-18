@@ -23,14 +23,24 @@ export const Login = () => {
   };
 
   useEffect(() => {
-    if(error) {
-      toast(error.response.data.message)
+    if (error) {
+      toast(error.response.data.message, {
+        position: toast.POSITION.TOP_CENTER,
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "dark",
+      });
+      console.log(error.response.data.message, "error loh");
     }
-
-    if(isSuccess){
-      window.location.href = "/home"
+    if (isSuccess) {
+      console.log("login success");
+      window.location.href = '/home'
     }
-  }, [status])
+  }, [status]);
   
   
 

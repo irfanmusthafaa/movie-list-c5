@@ -13,17 +13,12 @@ export const Detail = () => {
   const [genres, setGenres] = useState([]);
   const [key, setKey] = useState([]);
 
-  const { data: dataDetail } = useDataMoviesDetailQuery({
-    api_key: `${process.env.REACT_APP_KEY}`,
-    append_to_response: "videos",
-  });
-
-  console.log(dataDetail, "data detaiii");
+  const { data: dataDetail } = useDataMoviesDetailQuery();
 
   useEffect(() => {
     setDetails(dataDetail);
     setGenres(dataDetail?.genres);
-    setKey(dataDetail?.videos?.results);
+    setKey(dataDetail?.videos);
   }, [dataDetail]);
 
   const idKey = key?.map((value) => value.key);

@@ -3,7 +3,8 @@ import React from "react";
 import { Carousel, Typography, Button } from "@material-tailwind/react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faClock } from "@fortawesome/free-solid-svg-icons";
-import { ButtonWatch } from "./ButtonWatch";
+
+import { Link } from "react-router-dom";
 
 export const Header = ({ populars }) => {
   return (
@@ -34,9 +35,16 @@ export const Header = ({ populars }) => {
                 <Typography variant="h1" color="white" className="mb-4 text-3xl md:text-4xl lg:text-5xl">
                   {movie.title}
                 </Typography>
+                <Typography variant="h1" color="white" className="mb-4 text-3xl md:text-4xl lg:text-5xl"></Typography>
                 <p className="mb-4 text-white opacity-80 line-clamp-3">{movie.overview}</p>
                 <div className="flex justify-start gap-2">
-                  <ButtonWatch kunci={movie.id} />
+                  <Link
+                    to={`https://www.youtube.com/watch?v=${movie.videos?.map((value) => value.key).shift()}`}
+                    target="_blank"
+                    className="text-white text-sm font-bold pt-3 pb-2 px-7 bg-red-500 rounded-xl hover:opacity-75"
+                  >
+                    <FontAwesomeIcon icon={faClock} /> WATCH TRAILER
+                  </Link>
                 </div>
               </div>
             </div>

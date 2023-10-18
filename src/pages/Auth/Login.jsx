@@ -1,6 +1,7 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import img from "../../assets/img/movie.jpg";
+import {toast } from 'react-toastify';
 import { useLoginUser } from "../../services/Auth/post-login";
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -8,7 +9,7 @@ export const Login = () => {
   const [Email, setEmail] = useState("");
   const [Password, setPassword] = useState("");
 
-  const { mutate: login} = useLoginUser();
+  const { mutate: login, status, isSuccess, error} = useLoginUser();
 
   const handleInput = (e) => {
     if (e) {
@@ -20,6 +21,18 @@ export const Login = () => {
       }
     }
   };
+
+  useEffect(() => {
+    if(error) {
+      toast(error.response.data.message)
+    }
+
+    if(isSuccess){
+      window.location.href = "/home"
+    }
+  }, [status])
+  
+  
 
   const loginUser = () => {
     login({

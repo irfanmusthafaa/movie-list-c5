@@ -1,4 +1,3 @@
-import { toast } from "react-toastify";
 import { API_ENDPOINT } from "../../utils/api-endpoint";
 import { CookiesKey, CookiesStorage } from "../../utils/cookies";
 
@@ -11,20 +10,10 @@ const LoginUser = async (input) => {
     .post(API_ENDPOINT.LOGIN_USER, input)
     .then((result) => {
       CookiesStorage.set(CookiesKey.AuthToken, result.data.data.token);
-      window.location.href = '/home'
+
+      return result
     })
-    .catch(() => {
-      return toast.error("Login Gagal", {
-        position: toast.POSITION.TOP_CENTER,
-        autoClose: 3000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: false,
-        draggable: true,
-        progress: undefined,
-        theme: "dark",
-      });
-    });
+
 };
 
 const useLoginUser = () => {

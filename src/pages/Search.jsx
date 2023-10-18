@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { Nav } from "../assets/components/Nav";
 import { useLocation, useNavigate } from "react-router-dom";
-import { useDataMoviesSearchQuery } from "../services/get-movies-search";
 import { Typography } from "@material-tailwind/react";
+import { useDataMoviesSearchQuery } from "../services/Movies/get-movies-search";
 
 export const Search = () => {
   const location = useLocation();
@@ -11,6 +11,7 @@ export const Search = () => {
   const [search, setSearch] = useState("");
 
   const { data: dataSearch } = useDataMoviesSearchQuery({
+    page: 1,
     query: query,
   });
 

@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { useDataMoviesDetailQuery } from "../services/get-movies-detail";
+
 import { Carousel, Typography } from "@material-tailwind/react";
 import { Nav } from "../assets/components/Nav";
 import { RatingStar } from "../assets/components/RatingStar";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faClock } from "@fortawesome/free-solid-svg-icons";
+import { useDataMoviesDetailQuery } from "../services/Movies/get-movies-detail";
 
 export const Detail = () => {
   const [details, setDetails] = useState({});
@@ -16,6 +17,8 @@ export const Detail = () => {
     api_key: `${process.env.REACT_APP_KEY}`,
     append_to_response: "videos",
   });
+
+  console.log(dataDetail, "data detaiii");
 
   useEffect(() => {
     setDetails(dataDetail);

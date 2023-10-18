@@ -7,4 +7,6 @@ export const API_ENDPOINT = {
   LOGIN_USER: "/api/v1/auth/login",
   GET_USER: "/api/v1/auth/me",
   MOVIE_POPULAR: "/api/v1/movie/popular",
+  DETAIL_MOVIE: "/api/v1/movie",
+  SEARCH_MOVIE: "/api/v1/search/movie",
 };

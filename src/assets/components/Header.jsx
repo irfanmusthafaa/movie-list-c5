@@ -5,7 +5,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faClock } from "@fortawesome/free-solid-svg-icons";
 import { ButtonWatch } from "./ButtonWatch";
 
-export const Header = ({ nowPlayingMovies }) => {
+export const Header = ({ populars }) => {
   return (
     <Carousel
       prevArrow={() => false}
@@ -25,7 +25,7 @@ export const Header = ({ nowPlayingMovies }) => {
         </div>
       )}
     >
-      {nowPlayingMovies?.slice(8, 12).map((movie) => (
+      {populars?.slice(8, 12).map((movie) => (
         <div key={movie.id}>
           <div className="relative h-[full] w-full">
             <img src={`https://image.tmdb.org/t/p/original/${movie.backdrop_path}`} alt={movie.title} className="h-screen w-full object-cover" />

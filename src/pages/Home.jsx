@@ -25,7 +25,7 @@ export const Home = () => {
       <Nav color="transparent" />
       <Header nowPlayingMovies={nowPlayingMovies} />
       <PopularMovie />
-      <NowPlayingMovie />
+      {/* <NowPlayingMovie /> */}
       <Footer />
     </div>
   );

@@ -1,26 +1,24 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { useDataMoviesDetailQuery } from "../services/get-movies-detail";
+
 import { Carousel, Typography } from "@material-tailwind/react";
 import { Nav } from "../assets/components/Nav";
 import { RatingStar } from "../assets/components/RatingStar";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faClock } from "@fortawesome/free-solid-svg-icons";
+import { useDataMoviesDetailQuery } from "../services/Movies/get-movies-detail";
 
 export const Detail = () => {
   const [details, setDetails] = useState({});
   const [genres, setGenres] = useState([]);
   const [key, setKey] = useState([]);
 
-  const { data: dataDetail } = useDataMoviesDetailQuery({
-    api_key: `${process.env.REACT_APP_KEY}`,
-    append_to_response: "videos",
-  });
+  const { data: dataDetail } = useDataMoviesDetailQuery();
 
   useEffect(() => {
     setDetails(dataDetail);
     setGenres(dataDetail?.genres);
-    setKey(dataDetail?.videos?.results);
+    setKey(dataDetail?.videos);
   }, [dataDetail]);
 
   const idKey = key?.map((value) => value.key);

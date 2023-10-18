@@ -26,7 +26,7 @@ export const Nav = ({ color, variant }) => {
     >
       {/* <Navbar fullWidth="true" className=" bg-transparent absolute top-0 left-0 py-2 px-4 lg:px-8 lg:py-4 border-none"> */}
       <div className="container mx-auto px-4 flex items-center justify-between">
-        <a href="/" className="font-bold text-3xl text-red-500 cursor-pointer">
+        <a href="/home" className="font-bold text-3xl text-red-500 cursor-pointer">
           Movielist
         </a>
         <div className="hidden lg:block">

@@ -1,18 +1,15 @@
 import React, { useEffect, useState } from "react";
-import { useDataMoviesPopularQuery } from "../../services/get-movies-popular";
+import { useDataMoviesPopularQuery } from "../../services/Movies/get-movies-popular";
 import { Typography } from "@material-tailwind/react";
 import { useNavigate } from "react-router-dom";
 
 export const PopularMovie = () => {
   const [populars, setPopulars] = useState([]);
-  const [PageNow, setPageNow] = useState(2);
 
   const navigate = useNavigate();
 
-  const { data: moviesPopular } = useDataMoviesPopularQuery({
-    language: "en-US",
-    page: PageNow,
-  });
+  const { data: moviesPopular } = useDataMoviesPopularQuery();
+  console.log(moviesPopular, "movies popular");
 
   useEffect(() => {
     setPopulars(moviesPopular);

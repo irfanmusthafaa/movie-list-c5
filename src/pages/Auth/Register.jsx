@@ -1,35 +1,44 @@
 import React, { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useRegisterUser } from "../../services/Auth/post-register";
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import img from "../../assets/img/movie.jpg";
 
 export const Register = () => {
-  const [Username, setUsername] = useState("")
-  const [Password, setPassword] = useState("")
-  const [Email, setEmail] = useState("")
+  const [Username, setUsername] = useState("");
+  const [Password, setPassword] = useState("");
+  const [Email, setEmail] = useState("");
 
-  const { mutate: registerUser, data, status, isSuccess, error } = useRegisterUser();
+  const {mutate: registerUser, data, status, isSuccess, error} = useRegisterUser();
 
   const navigate = useNavigate();
 
   useEffect(() => {
     if (error) {
-      toast(error.response.data.message);
-      console.log(error.response.data.message, "error loh")
+      toast(error.response.data.message, {
+        position: toast.POSITION.TOP_CENTER,
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "dark",
+      });
+      console.log(error.response.data.message, "error loh");
     }
     if (isSuccess) {
-      console.log("registration success")
+      console.log("registration success");
       navigate("/login");
     }
-  }, [status])
-  
+  }, [status]);
 
   const register = () => {
     registerUser({
       email: Email,
       name: Username,
-      password: Password
+      password: Password,
     });
   };
 
@@ -48,27 +57,36 @@ export const Register = () => {
   };
 
   return (
-    <div className="flex flex-col justify-center items-center h-screen bg-gray-500">
-      <div className='flex flex-col justify-center items-center space-y-4 py-[4rem] px-[3rem] rounded-lg bg-gray-100 shadow-lg'>
-        <div className="bg-red-500">
-          Register
-        </div>
-        <ToastContainer />
-        <div>
-          <div>
-            Username : <input onChange={handleInput} id='username' className="border-2" type='text' placeholder="Username"></input>
+    <div>
+      <div className="flex items-center justify-center  min-h-screen bg-cover bg-center bg-no-repeat" style={{ backgroundImage: `url(${img})`, backgroundColor: "rgba(0, 0, 0, 0.6)"}}>
+        <div className="bg-black/60 fixed top-0 left-0 w-full h-screen"></div>
+        <div className="lg:w-1/4 md:w-1/2 border border-[rgba(255,255,255, .2)] backdrop-blur-xl shadow-xl text-white bg-transparent font-[Poppins] p-8 rounded-xl">
+          <h1 className="text-4xl text-center font-bold">Register</h1>
+          <div className="w-full my-8 mx-0 h-[50px] relative">
+            <input onChange={handleInput} id="email" className="w-full h-full px-6 py-4 bg-transparent text-white text-md outline-none border-2 border-gray-200 rounded-[40px] placeholder:text-white" type="email" placeholder="Email"/>
+            <i className="bx text-white bxs-user absolute right-5 top-3 text-xl"></i>
           </div>
-          <div>
-            Email : <input onChange={handleInput} id='email' className="border-2" type='text' placeholder="Email"></input>
+          <div className="w-full my-8 mx-0 h-[50px] relative">
+            <input onChange={handleInput} id="username" className="w-full h-full bg-transparent px-6 py-4 text-white text-md outline-none border-2 border-gray-200 rounded-[40px] placeholder:text-white" type="text" placeholder="Username"/>
+            <i className="bx text-white bxs-user-circle absolute right-5 top-3 text-xl"></i>
           </div>
-          <div>
-            Password : <input onChange={handleInput} id='password' className="border-2" type='password' placeholder="Password"></input>
+          <div className="w-full my-8 mx-0 h-[50px] relative">
+            <input onChange={handleInput} id="password" className="w-full h-full bg-transparent px-6 py-4 text-white text-md outline-none border-2 border-gray-200 rounded-[40px] placeholder:text-white" type="password" placeholder="Password"/>
+            <i className="bx bxs-lock-alt text-white absolute right-5 top-3 text-xl"></i>
           </div>
-        </div>
-        <div>
-          <button onClick={() => {register()}} className="border-2">Register</button>
+          <button onClick={() => {register()}} className="w-full rounded-full py-2 font-semibold bg-white text-black hover:opacity-80">
+            Register
+          </button>
+          <div className="text-center mt-5">
+            <p>
+              Already have an account?{" "}
+              <Link className="text-blue-600 hover:underline font-bold text-md" to="/login">
+                Login
+              </Link>{" "}
+            </p>
+          </div>
         </div>
       </div>
     </div>
-  ) 
+  );
 };

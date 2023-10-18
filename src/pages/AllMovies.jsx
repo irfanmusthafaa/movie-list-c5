@@ -3,6 +3,7 @@ import { useDataMoviesPopularQuery } from "../services/get-movies-popular";
 import { Typography } from "@material-tailwind/react";
 import { useNavigate } from "react-router-dom";
 import { Nav } from "../assets/components/Nav";
+import { Footer } from "../assets/components/Footer";
 
 export const AllMovies = () => {
   const [populars, setPopulars] = useState([]);
@@ -49,6 +50,7 @@ export const AllMovies = () => {
           </div>
         ))}
       </div>
+      <Footer />
     </>
   );
 };

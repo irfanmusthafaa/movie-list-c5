@@ -5,11 +5,11 @@ export const Footer = () => {
   const LINKS = [
     {
       title: "Pages",
-      items: ["Overview", "Features", "Solutions", "Tutorials"],
+      items: ["Home", "Popular", "Search", "Detail"],
     },
     {
-      title: "Test",
-      items: ["About us", "Careers", "Press", "News"],
+      title: "Movie",
+      items: ["Now Playing", "Popular", "Trending", "On Going"],
     },
     {
       title: "Resource",

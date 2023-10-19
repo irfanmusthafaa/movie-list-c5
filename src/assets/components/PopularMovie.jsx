@@ -9,7 +9,6 @@ export const PopularMovie = () => {
   const navigate = useNavigate();
 
   const { data: moviesPopular } = useDataMoviesPopularQuery();
-  console.log(moviesPopular, "movies popular");
 
   useEffect(() => {
     setPopulars(moviesPopular);

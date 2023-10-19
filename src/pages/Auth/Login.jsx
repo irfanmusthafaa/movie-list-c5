@@ -24,13 +24,11 @@ export const Login = () => {
     }
   };
 
-  
-    const [showPassword, setShowPassword] = useState(false);
-    
-    const togglePasswordVisibility = () => {
-      setShowPassword(!showPassword);
-    }
-  
+  const [showPassword, setShowPassword] = useState(false);
+
+  const togglePasswordVisibility = () => {
+    setShowPassword(!showPassword);
+  };
 
   useEffect(() => {
     if (error) {
@@ -44,10 +42,8 @@ export const Login = () => {
         progress: undefined,
         theme: "dark",
       });
-      console.log(error.response.data.message, "error loh");
     }
     if (isSuccess) {
-      console.log("login success");
       window.location.href = "/home";
     }
   }, [status]);
@@ -65,7 +61,7 @@ export const Login = () => {
         className="flex items-center justify-center  min-h-screen bg-cover bg-center bg-no-repeat"
         style={{ backgroundImage: `url(${img})`, backgroundColor: "rgba(0, 0, 0, 0.6)" }}
       >
-        <div className='bg-black/60 fixed top-0 left-0 w-full h-screen'></div>
+        <div className="bg-black/60 fixed top-0 left-0 w-full h-screen"></div>
         <div className="lg:w-1/4 md:w-1/2 border border-[rgba(255,255,255, .2)] backdrop-blur-xl shadow-xl text-white bg-transparent font-[Poppins] p-8 rounded-xl">
           <form action="">
             <h1 className="text-4xl  text-center font-bold">Login</h1>
@@ -85,11 +81,14 @@ export const Login = () => {
                 onChange={handleInput}
                 id="password"
                 className="w-full h-full bg-transparent px-6 py-4 text-white text-md outline-none border-2 border-gray-200 rounded-[40px] placeholder:text-white"
-                type={showPassword ? 'text' : 'password'}
+                type={showPassword ? "text" : "password"}
                 placeholder="Password"
                 required
               />
-              <i onClick={togglePasswordVisibility} className={`${showPassword ? ('bx bxs-hide') : ('bx bxs-show')} text-white absolute right-5 top-3 text-xl`}></i>
+              <i
+                onClick={togglePasswordVisibility}
+                className={`${showPassword ? "bx bxs-hide" : "bx bxs-show"} text-white absolute right-5 top-3 text-xl`}
+              ></i>
             </div>
             <button
               onClick={() => {

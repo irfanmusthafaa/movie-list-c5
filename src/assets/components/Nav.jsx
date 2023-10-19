@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Navbar, Button, IconButton,  Collapse } from "@material-tailwind/react";
+import { Navbar, Button, IconButton, Collapse } from "@material-tailwind/react";
 import { useNavigate } from "react-router-dom";
 import { CookiesKey, CookiesStorage } from "../../utils/cookies";
 
@@ -18,9 +18,9 @@ export const Nav = ({ color, variant }) => {
   }, []);
 
   const handleLogout = () => {
-    CookiesStorage.remove(CookiesKey.AuthToken)
-    window.location.href = '/'
-  }
+    CookiesStorage.remove(CookiesKey.AuthToken);
+    window.location.href = "/";
+  };
 
   return (
     <Navbar
@@ -100,7 +100,7 @@ export const Nav = ({ color, variant }) => {
               </label>
             </form>
           </div>
-          <Button onClick={handleLogout} variant="gradient" color="red" size="sm" fullWidth={true} className=" hover:opacity-75">
+          <Button onClick={handleLogout} variant="gradient" color="red" size="sm" fullWidth={true} className=" mt-3 hover:opacity-75">
             <span>Logout</span>
           </Button>
         </div>

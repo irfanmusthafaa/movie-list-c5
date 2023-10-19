@@ -13,7 +13,7 @@ const fetchDataMoviesDetail = async ({ queryKey }) => {
     })
     .catch((err) => {
       if (err.response.status === 401 || err.response.status === 404) {
-        window.location.href = "/login";
+        window.location.href = "/";
       }
     });
   return data.data;

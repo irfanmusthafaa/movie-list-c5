@@ -3,9 +3,10 @@ import React from "react";
 import { Carousel, Typography, Button } from "@material-tailwind/react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faClock } from "@fortawesome/free-solid-svg-icons";
-import { ButtonWatch } from "./ButtonWatch";
 
-export const Header = ({ nowPlayingMovies }) => {
+import { Link } from "react-router-dom";
+
+export const Header = ({ populars }) => {
   return (
     <Carousel
       prevArrow={() => false}
@@ -25,7 +26,7 @@ export const Header = ({ nowPlayingMovies }) => {
         </div>
       )}
     >
-      {nowPlayingMovies?.slice(8, 12).map((movie) => (
+      {populars?.slice(8, 12).map((movie) => (
         <div key={movie.id}>
           <div className="relative h-[full] w-full">
             <img src={`https://image.tmdb.org/t/p/original/${movie.backdrop_path}`} alt={movie.title} className="h-screen w-full object-cover" />
@@ -34,9 +35,16 @@ export const Header = ({ nowPlayingMovies }) => {
                 <Typography variant="h1" color="white" className="mb-4 text-3xl md:text-4xl lg:text-5xl">
                   {movie.title}
                 </Typography>
+                <Typography variant="h1" color="white" className="mb-4 text-3xl md:text-4xl lg:text-5xl"></Typography>
                 <p className="mb-4 text-white opacity-80 line-clamp-3">{movie.overview}</p>
                 <div className="flex justify-start gap-2">
-                  <ButtonWatch kunci={movie.id} />
+                  <Link
+                    to={`https://www.youtube.com/watch?v=${movie.videos?.map((value) => value.key).shift()}`}
+                    target="_blank"
+                    className="text-white text-sm font-bold pt-3 pb-2 px-7 bg-red-500 rounded-xl hover:opacity-75"
+                  >
+                    <FontAwesomeIcon icon={faClock} /> WATCH TRAILER
+                  </Link>
                 </div>
               </div>
             </div>

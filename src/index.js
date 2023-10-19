@@ -16,8 +16,8 @@ root.render(
   <React.StrictMode>
     <QueryClientProvider client={queryClient}>
       <GoogleOAuthProvider clientId={process.env.REACT_APP_CLIENT_ID}>
-      <ToastContainer/>
-      <RouterList />
+        <ToastContainer />
+        <RouterList />
       </GoogleOAuthProvider>
     </QueryClientProvider>
   </React.StrictMode>

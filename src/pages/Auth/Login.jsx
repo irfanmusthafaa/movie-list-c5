@@ -59,7 +59,7 @@ export const Login = () => {
         
       >
         <div className='bg-black/60 fixed top-0 left-0 w-full h-screen'></div>
-        <div className="w-1/4 border border-[rgba(255,255,255, .2)] backdrop-blur-xl shadow-xl text-white bg-transparent font-[Poppins] p-8 rounded-xl">
+        <div className="lg:w-1/4 md:w-1/2 border border-[rgba(255,255,255, .2)] backdrop-blur-xl shadow-xl text-white bg-transparent font-[Poppins] p-8 rounded-xl">
           <form action="">
             <h1 className="text-4xl  text-center font-bold">Login</h1>
             <div className="w-full my-8 mx-0 h-[50px] relative">

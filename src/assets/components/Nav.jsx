@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
-import { Navbar, Typography, Button, IconButton, Input, Collapse } from "@material-tailwind/react";
-import IconSearch from "../icons/icon-search.svg";
+import { Navbar, Button, IconButton,  Collapse } from "@material-tailwind/react";
 import { useNavigate } from "react-router-dom";
+import { CookiesKey, CookiesStorage } from "../../utils/cookies";
 
 export const Nav = ({ color, variant }) => {
   const [openNav, setOpenNav] = useState(false);
@@ -16,6 +16,11 @@ export const Nav = ({ color, variant }) => {
   useEffect(() => {
     window.addEventListener("resize", () => window.innerWidth >= 960 && setOpenNav(false));
   }, []);
+
+  const handleLogout = () => {
+    CookiesStorage.remove(CookiesKey.AuthToken)
+    window.location.href = '/login'
+  }
 
   return (
     <Navbar
@@ -51,11 +56,8 @@ export const Nav = ({ color, variant }) => {
           </form>
         </div>
         <div className="flex gap-4">
-          <Button className="px-7 bg-transparent text-red-500 border-red-500 border-2 hidden lg:inline-block hover:opacity-75">
-            <span>Login</span>
-          </Button>
-          <Button variant="gradient" color="red" className="px-7 hidden lg:inline-block hover:opacity-75">
-            <span>Register</span>
+          <Button onClick={handleLogout} variant="gradient" color="red" className="px-7 hidden lg:inline-block hover:opacity-75">
+            <span>Logout</span>
           </Button>
         </div>
 

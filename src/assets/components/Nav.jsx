@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
-import { Navbar, Typography, Button, IconButton, Input, Collapse } from "@material-tailwind/react";
-import IconSearch from "../icons/icon-search.svg";
+import { Navbar, Button, IconButton,  Collapse } from "@material-tailwind/react";
 import { useNavigate } from "react-router-dom";
+import { CookiesKey, CookiesStorage } from "../../utils/cookies";
 
 export const Nav = ({ color, variant }) => {
   const [openNav, setOpenNav] = useState(false);
@@ -17,6 +17,11 @@ export const Nav = ({ color, variant }) => {
     window.addEventListener("resize", () => window.innerWidth >= 960 && setOpenNav(false));
   }, []);
 
+  const handleLogout = () => {
+    CookiesStorage.remove(CookiesKey.AuthToken)
+    window.location.href = '/'
+  }
+
   return (
     <Navbar
       color={color}
@@ -25,7 +30,7 @@ export const Nav = ({ color, variant }) => {
       className="absolute z-10 top-0 left-0 right-0 py-2 px-4 lg:px-8 lg:py-4 bg-transparent border-none"
     >
       {/* <Navbar fullWidth="true" className=" bg-transparent absolute top-0 left-0 py-2 px-4 lg:px-8 lg:py-4 border-none"> */}
-      <div className="container mx-auto px-4 flex items-center justify-between">
+      <div className="container mx-auto flex items-center justify-between">
         <a href="/home" className="font-bold text-3xl text-red-500 cursor-pointer">
           Movielist
         </a>
@@ -50,12 +55,9 @@ export const Nav = ({ color, variant }) => {
             </label>
           </form>
         </div>
-        <div className="flex gap-4">
-          <Button className="px-7 bg-transparent text-red-500 border-red-500 border-2 hidden lg:inline-block hover:opacity-75">
-            <span>Login</span>
-          </Button>
-          <Button variant="gradient" color="red" className="px-7 hidden lg:inline-block hover:opacity-75">
-            <span>Register</span>
+        <div className="">
+          <Button onClick={handleLogout} variant="gradient" color="red" className="px-7 hidden lg:inline-block hover:opacity-75">
+            <span>Logout</span>
           </Button>
         </div>
 
@@ -98,12 +100,8 @@ export const Nav = ({ color, variant }) => {
               </label>
             </form>
           </div>
-
-          <Button size="sm" fullWidth={true} className="bg-white text-red-500 border-red-500 border-2 my-4 hover:opacity-75">
-            <span>Login</span>
-          </Button>
-          <Button variant="gradient" color="red" size="sm" fullWidth={true} className=" hover:opacity-75">
-            <span>Register</span>
+          <Button onClick={handleLogout} variant="gradient" color="red" size="sm" fullWidth={true} className=" hover:opacity-75">
+            <span>Logout</span>
           </Button>
         </div>
       </Collapse>

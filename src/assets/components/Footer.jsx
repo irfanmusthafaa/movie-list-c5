@@ -29,7 +29,7 @@ export const Footer = () => {
           <div className="grid grid-cols-3 justify-between gap-4">
             {LINKS.map(({ title, items }) => (
               <ul key={title}>
-                <Typography color="white" variant="small" className="mb-3 font-medium font-medium">
+                <Typography color="white" variant="small" className="mb-3 font-medium">
                   {title}
                 </Typography>
                 {items.map((link) => (

@@ -19,7 +19,7 @@ export const Nav = ({ color, variant }) => {
 
   const handleLogout = () => {
     CookiesStorage.remove(CookiesKey.AuthToken)
-    window.location.href = '/login'
+    window.location.href = '/'
   }
 
   return (
@@ -30,7 +30,7 @@ export const Nav = ({ color, variant }) => {
       className="absolute z-10 top-0 left-0 right-0 py-2 px-4 lg:px-8 lg:py-4 bg-transparent border-none"
     >
       {/* <Navbar fullWidth="true" className=" bg-transparent absolute top-0 left-0 py-2 px-4 lg:px-8 lg:py-4 border-none"> */}
-      <div className="container mx-auto px-4 flex items-center justify-between">
+      <div className="container mx-auto flex items-center justify-between">
         <a href="/home" className="font-bold text-3xl text-red-500 cursor-pointer">
           Movielist
         </a>
@@ -55,7 +55,7 @@ export const Nav = ({ color, variant }) => {
             </label>
           </form>
         </div>
-        <div className="flex gap-4">
+        <div className="">
           <Button onClick={handleLogout} variant="gradient" color="red" className="px-7 hidden lg:inline-block hover:opacity-75">
             <span>Logout</span>
           </Button>
@@ -100,12 +100,8 @@ export const Nav = ({ color, variant }) => {
               </label>
             </form>
           </div>
-
-          <Button size="sm" fullWidth={true} className="bg-white text-red-500 border-red-500 border-2 my-4 hover:opacity-75">
-            <span>Login</span>
-          </Button>
-          <Button variant="gradient" color="red" size="sm" fullWidth={true} className=" hover:opacity-75">
-            <span>Register</span>
+          <Button onClick={handleLogout} variant="gradient" color="red" size="sm" fullWidth={true} className=" hover:opacity-75">
+            <span>Logout</span>
           </Button>
         </div>
       </Collapse>

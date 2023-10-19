@@ -24,11 +24,12 @@ export const Login = () => {
     }
   };
 
-  function PasswordInput() {
+  
     const [showPassword, setShowPassword] = useState(false);
+    
     const togglePasswordVisibility = () => {
       setShowPassword(!showPassword);
-    };
+    }
   
 
   useEffect(() => {

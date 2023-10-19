@@ -13,8 +13,8 @@ export const RouterList = () => {
     <>
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<Register />}></Route>
-          <Route path="/login" element={<Login />}></Route>
+          <Route path="/register" element={<Register />}></Route>
+          <Route path="/" element={<Login />}></Route>
           <Route path="/home" element={<Home />}></Route>
           <Route path="/all-popular" element={<AllMovies />}></Route>
           <Route path="/all-now-playing" element={<AllNowPlaying />}></Route>

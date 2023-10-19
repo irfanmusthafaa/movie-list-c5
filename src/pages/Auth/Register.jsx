@@ -41,7 +41,7 @@ export const Register = () => {
       });
     }
     if (isSuccess) {
-      navigate("/login");
+      navigate("/");
     }
   }, [status]);
 

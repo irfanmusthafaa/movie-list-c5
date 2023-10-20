@@ -37,7 +37,7 @@ export const Register = () => {
         pauseOnHover: true,
         draggable: true,
         progress: undefined,
-        theme: "dark",
+        theme: "dark"
       });
     }
     if (isSuccess) {
@@ -47,12 +47,25 @@ export const Register = () => {
 
   const register = () => {
     if (ConfirmPass === Password) {
-      const Username = `${FirstName}` + `${LastName}`;
-      registerUser({
-        email: Email,
-        name: Username,
-        password: Password,
-      });
+      if (FirstName.trim() === "") {
+        toast("First name is required", {
+          position: toast.POSITION.TOP_CENTER,
+          autoClose: 3000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "dark"
+        })
+      } else {
+        const Username = `${FirstName}` + `${LastName}`;
+        registerUser({
+          email: Email,
+          name: Username,
+          password: Password
+        });
+      }
     } else {
       toast("Your password confirmation doesn't match", {
         position: toast.POSITION.TOP_CENTER,
@@ -62,7 +75,7 @@ export const Register = () => {
         pauseOnHover: true,
         draggable: true,
         progress: undefined,
-        theme: "dark",
+        theme: "dark"
       });
     }
   };
